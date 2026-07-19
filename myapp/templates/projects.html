@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 style="background-color:  #1e3a8a; border-radius: 10px; padding: 15px; margin: 20px auto; max-width: 800px; text-align: left; color: whitep;"> የእኔ ፕሮጀከቶች </h1>
+<ul>
+        {% for project in projects %}
+            <li class="project-card">
+                <strong > {{project.title}} </strong>
+                <p class="project-card p"> {{project.description}}</p>
+                <small class="tech-badge"> {{project.technology}}</small>
+            </li>,
+             {% empty %}
+            <li> No projects available </li>
+        {% endfor %}
+</ul>
+{% endblock content %}

@@ -4,12 +4,13 @@
     <h1> እንኳን ደህና መጣህ {{username}}! </h1>
     <h3> የስራ ድርሻህ {{role}}</h3>
     <hr style="border-color: #555;">
-    <h2 style="color: #00ffd2;"> ያሉኝ የቴክኖሎጂ ችሎታዎች (skills) :-</h2>
+    <h2 style="color: #06f656;"> ያሉኝ የቴክኖሎጂ ችሎታዎች (skills) :-</h2>
     <ul>
         {% for skill in skills %}
             <li style="margin-bottom: 15px; list-style: none;">
-                <strong style="font-size: 1.2rem; color: #ffeb3b;"> {{skill.title}} </strong>
-                <p style="margin: 5px 0 0 0; color: #ccc;"> {{skill.description}}</p>
+                <strong style="font-size: 1.2rem; color: #076ef6;"> {{skill.title}} </strong>
+                <p style="margin: 5px 0 0 0; color: #ccc;"> {{project.description}}</p>
+                <p> {{project.tec}}</p>
             </li>
         {% empty %}
             <li> እስካሁን ምንም አይነት ችሎታ አልተመዘገበም </li>
