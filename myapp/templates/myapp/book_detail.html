@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0"> የመጽሃፉ ዝርዝር </h4>
+                    <a href="{% url 'book_list' %}" class="btn btn-sm btn-outline-light">ወደ ዝርዝሩ ተመለስ </a>
+                </div>
+                <div class="card-body">
+                    <h3 class="text-primary">{{book.title}}</h3>
+                    <p class="fs-5"><strong>ደራሲ፡-</strong>{{book.author}}</p>
+                    <p class="fs-5"><strong>ጠቋሚ፡-</strong>{{book.recommended_by}}</p>
+                    <hr>
+                    <div class="d-flex justify-content-end">
+                        <a href="{% url 'delete_book' book.pk %}" class="btn btn-danger">የመጽሃፍ ጥቆማ ሰርዝ </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

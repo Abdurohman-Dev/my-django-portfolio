@@ -1,8 +1,9 @@
 from email.mime import message
-from django.shortcuts import render , redirect
+from django.shortcuts import render , redirect , get_object_or_404
 from .models import Skill,Project
 from .forms import ContactForm , BookForm
 from django.contrib import messages
+from .forms import Book
 def home (request):
     skills = Skill.objects.all()
     context = {
@@ -35,7 +36,20 @@ def add_book_view(request):
         form = BookForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('book_list')
     else:
         form = BookForm()
-        return render(request,'myapp/add_book.html',{'form':form})
+    return render(request,'myapp/add_book.html',{'form':form})
+def Book_list_view(request):
+    books = Book.objects.all()
+    context = {'books': books}
+    return render (request,'myapp/book_list.html',context)
+def book_detail_view(request, pk):
+    book = get_object_or_404(Book,pk=pk)
+    return render(request,'myapp/book_detail.html', {'book': book})
+def delete_book_view(request,pk):
+    book = get_object_or_404(Book,pk=pk)
+    if request.method == 'POST':
+        book.delete()
+        return redirect('book_list')
+    return render(request,'myapp/delete_book_confirm.html',{'book':book})

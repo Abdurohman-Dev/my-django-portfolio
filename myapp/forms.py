@@ -26,17 +26,13 @@ class BookForm(forms.ModelForm):
         model = Book
         fields = ['title' , 'author' , 'recommended_by']
 
+        labels= {
+            'title':'የመጽሃፉ ርዕስ',
+            'author':'ደራሲ',
+            'recommended_by':'የዕርስዎ ስም(ጠቋሚ)', 
+        }
         widgets = {
-            'title': forms.TextInput(attrs={
-                'class': 'form-control mb-3',
-                'placeholder': 'የመጽሀፉ ርዕስ...'
-            }),
-            'author': forms.TextInput(attrs={
-                'class': 'form-control mb-3',
-                'placeholder': 'የደራሲው ስም ...'
-            }),
-            'recommended_py': forms.TextInput(attrs={
-                'class': 'form-control mb-3',
-                'placeholder': 'ጠቋሚው ሰው ስም...'
-            }),
+            'title': forms.TextInput(attrs={'class': 'form-control','placeholder':'የምጽሃፉን ርዕስ ያስገቡ '}),
+            'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'የደራሲውን ስም ያስገቡ '}),
+            'recommended_by': forms.TextInput(attrs={'class': 'form-control','placeholder': 'የእርስዎን ስም ያስገቡ '}),
         }
